@@ -30,23 +30,14 @@ body {
 }
 
 input {
-    /* size */
     width: 200px;
     padding: 12px 15px;
-
-    /* border */
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.7);
     border-radius: 0;
-
-    /* text */
     font-size: 14px;
     color: white;
-
-    /* background */
     background-color: transparent;
-
-    /* others */
     outline: none;
 }
 
@@ -65,22 +56,20 @@ input::placeholder {
 }
 
 h1 {
-    /* greeting */
-    font-size: 60px;
-
+    font-size: 50px;
+    margin: 10px 0;
 }
 
 h2 {
-    /* clock */
-    font-size: 40px;
+    font-size: 36px;
+    margin: 10px 0;
 }
 
 .weather {
-    margin-bottom: 20px;
+    margin: 5px 0 15px 0;
 }
 
 form {
-    /* login form */
     padding: 16px;
     background-color: transparent;
     border: none;
@@ -91,7 +80,6 @@ form {
     width: 140px;
 }
 
-/* middle section layout */
 .middle-section {
     display: flex;
     width: 100%;
@@ -112,20 +100,16 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     width: 400px;
     height: 460px;
     border-radius: 16px;
     padding: 20px 16px;
     line-height: 1.8;
-
-    /* Glassmorphism effect */
-    background: rgba(255, 255, 255, 0.08);
+    background: (255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
     overflow: hidden;
     transition: all 0.3s ease;
 }
@@ -148,7 +132,6 @@ ul {
     max-height: 100%;
 }
 
-/* Custom scrollbar for todo list */
 ul::-webkit-scrollbar {
     width: 8px;
 }
@@ -168,30 +151,21 @@ ul::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.35);
 }
 
-/* Todo list items */
 li {
     width: 100%;
-    padding: 12px 8px;
+    padding: 0px 4px;
     margin-bottom: 8px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-}
-
-li:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
 }
 
 .checkbtn {
     border: 2px solid rgba(255, 255, 255, 0.5);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     color: rgba(255, 100, 100, 0.9);
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 12px;
-    padding: 0;
+    padding: 0px;
     width: 24px;
     height: 24px;
     border-radius: 6px;
@@ -214,7 +188,6 @@ li:hover {
     transform: scale(0.95);
 }
 
-/* Todo text styling */
 .todo-text {
     font-size: 14px;
     color: white;
@@ -223,14 +196,12 @@ li:hover {
     word-break: break-word;
 }
 
-/* quote */
 .quote {
     position: fixed;
     bottom: 20px;
 }
 
 .quote * {
-    /* .quote-child */
     font-family: "Metal", serif;
     font-weight: 400;
     font-style: normal;
@@ -245,4 +216,3 @@ li:hover {
     display: block;
     text-align: right;
 }
-
