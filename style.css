@@ -129,6 +129,7 @@ ul {
     margin: 0;
     width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: 100%;
 }
 
@@ -216,3 +217,4 @@ li {
     display: block;
     text-align: right;
 }
+
