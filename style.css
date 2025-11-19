@@ -4,7 +4,6 @@
     font-family: "Google Sans Code", "Nanum Gothic", monospace, sans-serif;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    font-size: 18px;
 }
 
 .hidden {
@@ -27,6 +26,7 @@ body {
     flex-direction: column;
     align-items: center;
     quotes: flex-end;
+    font-size: 16px;
 }
 
 input {
@@ -56,17 +56,19 @@ input::placeholder {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 46px;
     margin: 10px 0;
+    min-height: 50px;
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 32px;
     margin: 10px 0;
 }
 
 .weather {
     margin: 5px 0 15px 0;
+    min-height: 30px;
 }
 
 form {
@@ -87,6 +89,7 @@ form {
     gap: 40px;
     margin-top: 50px;
     align-items: flex-start;
+    min-height: 500px;
 }
 
 .left-section {
@@ -115,7 +118,7 @@ form {
 }
 
 .right-section:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
 }
@@ -195,6 +198,39 @@ li {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     flex: 1;
     word-break: break-word;
+    position: relative;
+}
+
+.fade-out .todo-text {
+    text-decoration: line-through;
+    text-decoration-color: rgba(255, 100, 100, 0.9);
+    text-decoration-thickness: 2px;
+    animation: strikethrough 0.6s ease-out;
+}
+
+@keyframes strikethrough {
+    from {
+        text-decoration-color: transparent;
+    }
+    to {
+        text-decoration-color: rgba(255, 100, 100, 0.9);
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1.2s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .quote {
@@ -217,4 +253,3 @@ li {
     display: block;
     text-align: right;
 }
-
