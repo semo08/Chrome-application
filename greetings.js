@@ -2,17 +2,24 @@ const loginForm = document.querySelector("#login-form")
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 
-// uppercase variables use for variables only contain string. typically..
-// also no important values contained
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
+
+function loginFirst() {
+    loginInput.focus();
+}
 
 function onLoginSubmit(event) {
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
     const username = loginInput.value;
-    localStorage.setItem(USERNAME_KEY, username);     // .setItem("key", value);
-    paintGreetings(username); 
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+
+    const todoInput = document.querySelector("#todo-form input");
+    if (todoInput) {
+        todoInput.focus();
+    }
 }
 
 function paintGreetings(username) {
@@ -23,10 +30,9 @@ function paintGreetings(username) {
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
-    // show the form
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener("submit", onLoginSubmit);
-}   else {
-    // show the greetings
+    window.addEventListener("load", loginFirst);
+} else {
     paintGreetings(savedUsername);
 }
