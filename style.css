@@ -84,6 +84,7 @@ form {
 
 .middle-section {
     display: flex;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
     gap: 40px;
@@ -93,20 +94,18 @@ form {
 }
 
 .left-section {
-    flex: 0.9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: none;
 }
 
 .right-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    height: 460px;
+    align-items: center;
+    width: 480px;
+    height: auto;
+    min-height: 500px;
     border-radius: 16px;
-    padding: 20px 16px;
+    padding: 20px 30px;
     line-height: 1.8;
     background: (255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -115,6 +114,14 @@ form {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     overflow: hidden;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.right-section #todo-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .right-section:hover {
@@ -123,17 +130,17 @@ form {
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
 }
 
-ul {
+.right-section ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-left: 0;
+    padding: 0 10px 0 10px;
     margin: 0;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 100%;
+    flex: 1;
 }
 
 ul::-webkit-scrollbar {
@@ -247,7 +254,7 @@ li {
 }
 
 .quote span:first-child {
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .quote span:last-child {
@@ -403,4 +410,3 @@ li {
         font-size: 13px;
     }
 }
-
