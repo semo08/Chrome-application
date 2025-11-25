@@ -121,7 +121,7 @@ form {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    padding-bottom: 4px;
 }
 
 .right-section:hover {
@@ -168,6 +168,13 @@ li {
     margin-bottom: 8px;
     display: flex;
     align-items: center;
+}
+
+.undoInfo {
+    font-size: 11px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: right;
 }
 
 .checkbtn {
@@ -410,3 +417,4 @@ li {
         font-size: 13px;
     }
 }
+
