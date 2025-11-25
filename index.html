@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Momentum</title>
 </head>
 
 <body>
-    <h2 id="clock">00:00</h2>   
+    <h2 id="clock">00:00</h2>
     <div id="weather" class="weather">
         <span></span>
         <span></span>
     </div>
     <form id="login-form" class="hidden">
-        <input required maxlength="15" type="text" placeholder="What is your name?"/>
-        <input class="loginBtn" type="submit" value="Log In"/>
+        <input required maxlength="15" type="text" placeholder="What is your name?" />
+        <input class="loginBtn" type="submit" value="Log In" />
     </form>
     <h1 id="greeting" class="hidden"></h1>
     <div class="middle-section">
@@ -26,6 +26,7 @@
             <form id="todo-form">
                 <input class="todoinput" type="text" placeholder="Write a To Do ✓ and Press Enter ↲" required />
             </form>
+            <span class="undoInfo">Ctrl+Z to undo last delete</span>
             <ul id="todo-list"></ul>
         </div>
     </div>
@@ -33,6 +34,7 @@
         <span></span>
         <span></span>
     </div>
+    
     <script src="greetings.js"></script>
     <script src="clock.js"></script>
     <script src="quotes.js"></script>
@@ -43,6 +45,7 @@
 </body>
 
 </html>
+
 
 
 
