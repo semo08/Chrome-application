@@ -140,7 +140,8 @@ form {
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    flex: 1;
+    max-height: 380px;
+    height: 100%
 }
 
 ul::-webkit-scrollbar {
@@ -417,4 +418,5 @@ li {
         font-size: 13px;
     }
 }
+
 
