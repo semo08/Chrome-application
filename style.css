@@ -471,6 +471,7 @@ li {
         padding: 14px 20px;
         width: 85%;
         max-width: 320px;
+        justify-content: space-between;
     }
 
     #toast-message {
@@ -482,3 +483,4 @@ li {
         font-size: 12px;
     }
 }
+
