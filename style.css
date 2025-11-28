@@ -102,8 +102,7 @@ form {
     flex-direction: column;
     align-items: center;
     width: 480px;
-    height: auto;
-    min-height: 500px;
+    height: 500px;
     border-radius: 16px;
     padding: 20px 30px;
     line-height: 1.8;
@@ -418,5 +417,6 @@ li {
         font-size: 13px;
     }
 }
+
 
 
