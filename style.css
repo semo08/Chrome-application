@@ -140,7 +140,7 @@ form {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 380px;
-    height: 100%
+    height: 100%;
 }
 
 ul::-webkit-scrollbar {
@@ -245,6 +245,55 @@ li {
     100% {
         opacity: 0;
     }
+}
+
+.toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(500%);
+    background: rgba(60, 60, 60, 0.45);
+    backdrop-filter: blur(10px);
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+#toast-message {
+    color: white;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+#toast-undo-btn {
+    background: rgba(126, 163, 218, 0.9);
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#toast-undo-btn:hover {
+    background: 126, 163, 218, 0.9;
+    transform: scale(1.05);
+}
+
+#toast-undo-btn:active {
+    transform: scale(0.95);
 }
 
 .quote {
@@ -416,7 +465,20 @@ li {
     .todo-text {
         font-size: 13px;
     }
+
+    .toast {
+        bottom: 20px;
+        padding: 14px 20px;
+        width: 85%;
+        max-width: 320px;
+    }
+
+    #toast-message {
+        font-size: 13px;
+    }
+
+    #toast-undo-btn {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
 }
-
-
-
