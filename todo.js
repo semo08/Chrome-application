@@ -5,7 +5,10 @@ const todoList = document.getElementById("todo-list");
 const TODOS_KEY = "todos"
 
 let todos = [];
-let deletedTodo = null;  
+let deletedTodo = null;
+
+const toastUndoBtn = document.getElementById("toast-undo-btn");
+toastUndoBtn.addEventListener("click", undoDelete);
 
 function saveTodos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
@@ -13,7 +16,6 @@ function saveTodos() {
 
 function deleteTodo(event) {
     const li = event.target.parentElement;
-
     const todoId = parseInt(li.id);
     deletedTodo = todos.find((todo) => todo.id === todoId);
     todos = todos.filter((todo) => todo.id !== parseInt(li.id));
@@ -23,6 +25,8 @@ function deleteTodo(event) {
     setTimeout(() => {
         li.remove();
     }, 1200);
+
+    showToast();
 }
 
 function undoDelete() {
@@ -30,12 +34,13 @@ function undoDelete() {
         todos.push(deletedTodo);
         paintTodo(deletedTodo);
         saveTodos();
-        deletedTodo = null; 
+        deletedTodo = null;
+        hideToast();
     }
 }
 
 document.addEventListener("keydown", (event) => {
-    if (event.ctrlKey && event.key === "z") {
+    if ((event.ctrlKey || event.metaKey) && event.key === "z") {
         event.preventDefault();
         undoDelete();
     }
@@ -76,4 +81,32 @@ if (savedTodos !== null) {
     const parsedTodos = JSON.parse(savedTodos);
     todos = parsedTodos;
     parsedTodos.forEach(paintTodo);
+}
+
+let toastTimeout = null;
+
+function showToast() {
+    const toast = document.getElementById("toast");
+    toast.classList.remove("hidden");
+
+    setTimeout(() => {
+        toast.classList.add("show");
+    }, 10);
+
+    if (toastTimeout) {
+        clearTimeout(toastTimeout);
+    }
+    
+    toastTimeout = setTimeout(() => {
+        hideToast();
+    }, 4000);
+}
+
+function hideToast() {
+    const toast = document.getElementById("toast");
+    toast.classList.remove("show");
+
+    setTimeout(() => {
+        toast.classList.add("hidden");
+    }, 300);
 }
