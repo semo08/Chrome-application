@@ -6,6 +6,12 @@ const TODOS_KEY = "todos"
 
 let todos = [];
 let deletedTodo = null;
+const MAX_TODOS = 50;
+
+function updateTodoCounter() {
+    const counter = document.getElementById("todo-counter");
+    counter.innerHTML = `You've got <span style="font-size: 1.1em; color: #b44040ff; font-style: italic; text-shadow: 0 0 10px white;">(${todos.length}/${MAX_TODOS})</span> todos.`;
+}
 
 const toastUndoBtn = document.getElementById("toast-undo-btn");
 toastUndoBtn.addEventListener("click", undoDelete);
@@ -20,6 +26,7 @@ function deleteTodo(event) {
     deletedTodo = todos.find((todo) => todo.id === todoId);
     todos = todos.filter((todo) => todo.id !== parseInt(li.id));
     saveTodos();
+    updateTodoCounter();
 
     li.classList.add("fade-out");
     setTimeout(() => {
@@ -34,6 +41,7 @@ function undoDelete() {
         todos.push(deletedTodo);
         paintTodo(deletedTodo);
         saveTodos();
+        updateTodoCounter();
         deletedTodo = null;
         hideToast();
     }
@@ -65,12 +73,19 @@ function handletodoSubmit(event) {
     event.preventDefault();
     const newTodo = todoInput.value;
     todoInput.value = "";
+
+    if (todos.length >= MAX_TODOS) {
+        alert(`Maximum ${MAX_TODOS} todos allowed!`);
+        return;
+    }
+
     const newTodoObj = {
         text: newTodo, id: Date.now(),
     };
     todos.push(newTodoObj);
     paintTodo(newTodoObj);
     saveTodos();
+    updateTodoCounter();
 }
 
 todoForm.addEventListener("submit", handletodoSubmit);
@@ -81,6 +96,7 @@ if (savedTodos !== null) {
     const parsedTodos = JSON.parse(savedTodos);
     todos = parsedTodos;
     parsedTodos.forEach(paintTodo);
+    updateTodoCounter();
 }
 
 let toastTimeout = null;
