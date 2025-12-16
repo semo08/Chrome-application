@@ -11,7 +11,7 @@ function onGeoOk(position) {
             const city = document.querySelector("#weather span:last-child")
             const icon = data.weather[0].icon;
 
-            weather.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" style="width: 35px; height: 35px; vertical-align: middle; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.9));"> ${data.weather[0].main} | ${data.main.temp}°C | `;
+            weather.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" style="width: 50px; height: 50px; vertical-align: middle; filter: drop-shadow(0 0 3px white) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));"> ${data.weather[0].main} | ${data.main.temp}°C | `;
             city.innerText = data.name;
         });
 }
