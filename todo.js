@@ -37,7 +37,9 @@ function deleteTodo(event) {
 }
 
 function undoDelete() {
-    if (deletedTodo !== null) {
+    if (deletedTodo !== null &&
+        (deletedTodo &&
+            !todos.find(todo => todo.id === deletedTodo.id))) {
         todos.push(deletedTodo);
         paintTodo(deletedTodo);
         saveTodos();
