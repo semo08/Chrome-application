@@ -37,16 +37,28 @@ function deleteTodo(event) {
 }
 
 function undoDelete() {
-    if (deletedTodo !== null &&
-        (deletedTodo &&
-            !todos.find(todo => todo.id === deletedTodo.id))) {
-        todos.push(deletedTodo);
-        paintTodo(deletedTodo);
-        saveTodos();
-        updateTodoCounter();
-        deletedTodo = null;
-        hideToast();
+    console.log("=== Undo start ===");
+    console.log("1. deletedTodo: ", deletedTodo);
+    console.log("2. Current todos array: ", todos);
+
+    if (deletedTodo) {
+        const exists = todos.find(todo => todo.id === deletedTodo.id);
+        console.log("3. Already exists?: ", exists);
+
+        if (!exists) {
+            console.log("4. Condition passed, adding item.");
+            todos.push(deletedTodo);
+            paintTodo(deletedTodo);
+            saveTodos();
+            updateTodoCounter();
+            deletedTodo = null; // reset after undo
+        } else {
+            console.log("4. duplicate - not adding");
+        }
+    } else {
+        console.log("deletedTodo is null");
     }
+    hideToast();
 }
 
 document.addEventListener("keydown", (event) => {
