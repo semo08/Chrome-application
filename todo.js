@@ -10,7 +10,7 @@ const MAX_TODOS = 50;
 
 function updateTodoCounter() {
     const counter = document.getElementById("todo-counter");
-    counter.innerHTML = `You've got <span style="font-size: 1.1em; color: #b44040ff; font-style: italic; text-shadow: 0 0 10px white;">(${todos.length}/${MAX_TODOS})</span> todos.`;
+    counter.innerHTML = `You've got <span style="font-size: 1.1em; font-style: italic;">(${todos.length}/${MAX_TODOS})</span> todos.`;
 }
 
 const toastUndoBtn = document.getElementById("toast-undo-btn");
@@ -81,6 +81,11 @@ function paintTodo(newTodo) {
     li.appendChild(button);
     li.appendChild(span);
     todoList.appendChild(li);
+
+    todoList.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth'
+    });
 }
 
 function handletodoSubmit(event) {
