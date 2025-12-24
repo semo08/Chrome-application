@@ -24,16 +24,17 @@ function deleteTodo(event) {
     const li = event.target.parentElement;
     const todoId = parseInt(li.id);
     deletedTodo = todos.find((todo) => todo.id === todoId);
-    todos = todos.filter((todo) => todo.id !== parseInt(li.id));
-    saveTodos();
-    updateTodoCounter();
+
 
     li.classList.add("fade-out");
     setTimeout(() => {
         li.remove();
-    }, 1200);
-
-    showToast();
+        // DOM 삭제 후 데이터 처리
+        todos = todos.filter((todo) => todo.id !== todoId);
+        saveTodos();
+        updateTodoCounter();
+        showToast();
+    }, 500);
 }
 
 function undoDelete() {
@@ -131,7 +132,7 @@ function showToast() {
     if (toastTimeout) {
         clearTimeout(toastTimeout);
     }
-    
+
     toastTimeout = setTimeout(() => {
         hideToast();
     }, 4000);

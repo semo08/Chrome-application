@@ -234,7 +234,7 @@ li {
 }
 
 .fade-out {
-    animation: fadeOut 1.2s ease-out forwards;
+    animation: fadeOut 0.5s ease-out forwards;
 }
 
 @keyframes fadeOut {
