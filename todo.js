@@ -38,26 +38,16 @@ function deleteTodo(event) {
 }
 
 function undoDelete() {
-    console.log("=== Undo start ===");
-    console.log("1. deletedTodo: ", deletedTodo);
-    console.log("2. Current todos array: ", todos);
-
     if (deletedTodo) {
         const exists = todos.find(todo => todo.id === deletedTodo.id);
-        console.log("3. Already exists?: ", exists);
 
         if (!exists) {
-            console.log("4. Condition passed, adding item.");
             todos.push(deletedTodo);
             paintTodo(deletedTodo);
             saveTodos();
             updateTodoCounter();
             deletedTodo = null; // reset after undo
-        } else {
-            console.log("4. duplicate - not adding");
         }
-    } else {
-        console.log("deletedTodo is null");
     }
     hideToast();
 }
@@ -84,7 +74,7 @@ function paintTodo(newTodo) {
     todoList.appendChild(li);
 
     todoList.scrollTo({
-        top: document.documentElement.scrollHeight,
+        top: todoList.scrollHeight,
         behavior: 'smooth'
     });
 }
